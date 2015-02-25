@@ -71,7 +71,22 @@ whether the array contains two elements $a$ and $b$ such that $a + b = z$.
 \end{addmargin}
 \item You are given an array $A$ of $n$ integers (possibly negative) and you want to determine whether the array contains three elements $a$, $b$, and $c$ such that $a+b+c = 0$. Give an algorithm that solves this problem in $O(n^2)$ time.
 \begin{addmargin}[2em]{2em}
-
+\begin{lstlisting}
+Let A be the array of integers
+Use merge-sort to sort in ascending order
+For i from 0 to n-1
+	j = i+1
+	k = n-1
+	While j < k
+		Sum = A[i] + A[j] + A[k]
+		If Sum > 0
+			k -= 1
+		If Sum < 0
+			j += 1
+		Else
+			Return true
+Return false
+\end{lstlisting}
 \end{addmargin}
 \item You are given an array of size $n$ containing every number in ${0,1,2,...,n}$ except for one. Give an algorithm to find the missing number in time $O(n)$, using only 1 memory cell that has $\lceil 2 \log_{2}{n} \rceil$ bits. (For example, when $n = 50000$, the cell has 32 bits, and can represent numbers from $0$ to $2^{32} -í°€1$.)
 \begin{addmargin}[2em]{2em}
