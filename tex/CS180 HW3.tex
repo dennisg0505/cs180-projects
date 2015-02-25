@@ -1,0 +1,101 @@
+\title{CS 180 Homework 3}
+\date{\today}
+
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+\usepackage{scrextend}
+\usepackage{filecontents,tikz}
+\usepackage{pgfplots}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{svg}
+\pgfplotsset{compat=1.7}
+
+\begin{document}
+\maketitle
+
+\section{Rectangles}\label{rectangles}
+\begin{enumerate}[(a)]
+\item Design an $O(n \log n)$ algorithm that finds the outline of the rectangles.
+\begin{addmargin}[2em]{2em}
+\begin{lstlisting}
+Let I be the array of rectangle arrays
+Sort array I by the first element of each rectangle array in ascending order with mergesort
+Let O be an empty array of integers
+For each array R in I
+	If R[1] > nextR[1]
+		Push R[0] to O
+
+
+\end{lstlisting}
+\end{addmargin}
+\item Design an O(n) algorithm that, given an outline, finds a rectangle of maximal area that fits within the outline. Implement your algorithm with a single left-to-right scan through the outline data.
+\begin{addmargin}[2em]{2em}
+\begin{lstlisting}
+Let O be the array representing the outline
+Let S, i be 0
+While O[i+2] is not null
+	S += (O[i+2] - O[i]) / O[i+1]
+	i += 2
+Return S
+\end{lstlisting}
+\end{addmargin}
+\end{enumerate}
+
+\section{Interview Questions}\label{interview questions}
+\begin{enumerate}[(a)]
+\item You are given a 3-pint container and a 5-pint container, and as much water as you want. Specify a sequence of filling and emptying steps that leave the containers holding exactly 7 pints of water.
+\begin{addmargin}[2em]{2em}
+The first step is to fill up the the 5-pint container and empty as much as possible into the 2-pint container. This leaves you with 3 pints and 2 pints in the two containers. The next step is to empty the full 3-pint container and pour the 2 pints from the 5-pint container into the 3-pint container. Finally, you fill the empty 5-pint container, leaving us with 2 pints in the 3-pint container and 5 pints in the 5-pint container for a total of 7 pints of water
+\end{addmargin}
+\item There are many problems like the one above; it is from the 1916 Stanford-Binet IQ test. A common interview question uses 3, 5, 4. Design an algorithm that, given three small integers like these as input, finds a sequence with the minimum number of steps.
+\begin{addmargin}[2em]{2em}
+\begin{lstlisting}
+
+\end{lstlisting}
+\end{addmargin}
+\item You are given an array $A$ of $n$ integers, and another integer $z$, and you want to determine
+whether the array contains two elements $a$ and $b$ such that $a + b = z$.
+\begin{addmargin}[2em]{2em}
+\begin{enumerate}[i.]
+\item Give an algorithm that uses a min-heap and a max-heap to determine this in time $O(n \log n)$.
+\begin{addmargin}[4em]{2em}
+
+\end{addmargin}
+\item Give an algorithm that runs in time $O(n)$, assuming that $A$ is given to you in sorted order.
+\begin{addmargin}[4em]{2em}
+
+\end{addmargin}
+\end{enumerate}
+\end{addmargin}
+\item You are given an array $A$ of $n$ integers (possibly negative) and you want to determine whether the array contains three elements $a$, $b$, and $c$ such that $a+b+c = 0$. Give an algorithm that solves this problem in $O(n^2)$ time.
+\begin{addmargin}[2em]{2em}
+
+\end{addmargin}
+\item You are given an array of size $n$ containing every number in ${0,1,2,...,n}$ except for one. Give an algorithm to find the missing number in time $O(n)$, using only 1 memory cell that has $\lceil 2 \log_{2}{n} \rceil$ bits. (For example, when $n = 50000$, the cell has 32 bits, and can represent numbers from $0$ to $2^{32} -í°€1$.)
+\begin{addmargin}[2em]{2em}
+
+\end{addmargin}
+\end{enumerate}
+
+\section{Optimal Submatrix}\label{optimal submatrix}
+\begin{enumerate}[(a)]
+\item Find a maximal positive rectangular submatrix - i.e., a submatrix containing only positive values that has the most elements.
+\begin{addmargin}[2em]{2em}
+
+\end{addmargin}
+\item Find a maximum sum rectangular submatrix - i.e., a submatrix whose elements have maximal sum. (Hint: This is a generalization of the `maxsum' problem discussed at the start of this course.).
+\begin{addmargin}[2em]{2em}
+
+\end{addmargin}
+\end{enumerate}
+
+\section{Going Beyond the Master Theorem}\label{going beyond the master theorem}
+\begin{enumerate}[(a)]
+\item 
+\begin{addmargin}[2em]{2em}
+
+\end{addmargin}
+\end{enumerate}
+\end{document}
