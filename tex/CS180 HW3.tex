@@ -61,7 +61,20 @@ The first step is to fill up the the 5-pint container and empty as much as possi
 \item There are many problems like the one above; it is from the 1916 Stanford-Binet IQ test. A common interview question uses 3, 5, 4. Design an algorithm that, given three small integers like these as input, finds a sequence with the minimum number of steps.
 \begin{addmargin}[2em]{2em}
 \begin{lstlisting}
-
+Let a, b be the container sizes
+Let z be the target
+Let G be a directed graph consisting of one vertex (0, 0)
+For each vertex in G
+	Create an edge from (V1, V2) to (V1, V2 + V1 mod b) if not explored
+	Create an edge from (V1, V2) to (V1, b) if not explored
+	Create an edge from (V1, V2) to (V1, 0) if not explored
+	Create an edge from (V1, V2) to (V1 + V2 mod a, V2) if not explored
+	Create an edge from (V1, V2) to (a, V2) if not explored
+	Create an edge from (V1, V2) to (0, V2) if not explored
+	Mark (V1, V2) as explored
+Let T be a Dijkstra's shortest path tree for G from (0, 0)
+Use DFS on T until first coordinate + second coordinate is z
+Return the stack used for DFS
 \end{lstlisting}
 \end{addmargin}
 \item You are given an array $A$ of $n$ integers, and another integer $z$, and you want to determine
