@@ -83,7 +83,24 @@ whether the array contains two elements $a$ and $b$ such that $a + b = z$.
 \begin{enumerate}[i.]
 \item Give an algorithm that uses a min-heap and a max-heap to determine this in time $O(n \log n)$.
 \begin{addmargin}[4em]{2em}
+\begin{lstlisting}
+Let A be the array of integers
+Let Min be a min-heap
+Let Max be a max-heap
+For each i from 0 to n-1
+	Min.Insert(A[i])
+	Max.Insert(A[i])
 
+While FindMin(Min) < FindMax(Max)
+	Sum = FindMin(Min) + FindMax(Max)
+	If Sum > z
+		ExtractMin(Min)
+	Else if Sum < z
+		ExtractMax(Max)
+	Else
+		Return true
+Return false
+\end{lstlisting}
 \end{addmargin}
 \item Give an algorithm that runs in time $O(n)$, assuming that $A$ is given to you in sorted order.
 \begin{addmargin}[4em]{2em}
