@@ -20,14 +20,23 @@
 \item Design an $O(n \log n)$ algorithm that finds the outline of the rectangles.
 \begin{addmargin}[2em]{2em}
 \begin{lstlisting}
+Function mergeRect(array)
+	If sizeof(array) is 1
+		Return array[0]
+	midpoint = sizeof(array)/2
+	first = array[:midpoint]
+	second = array[midpoint:]
+	Return merge(mergeRect(first), mergeRect(second))
+
+Function merge(arrayOne, arrayTwo)
+	Let Output be an empty integer array
+	For each i from 0 to sizeof(arrayOne)-1
+		For each j from 0 to sizeof(arrayTwo)-1
+			Push arrayOne[i] to Output
+
 Let I be the array of rectangle arrays
 Sort array I by the first element of each rectangle array in ascending order with mergesort
-Let O be an empty array of integers
-For each array R in I
-	If R[1] > nextR[1]
-		Push R[0] to O
-
-
+Return mergeRect(I)
 \end{lstlisting}
 \end{addmargin}
 \item Design an O(n) algorithm that, given an outline, finds a rectangle of maximal area that fits within the outline. Implement your algorithm with a single left-to-right scan through the outline data.
