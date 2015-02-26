@@ -74,7 +74,20 @@ whether the array contains two elements $a$ and $b$ such that $a + b = z$.
 \end{addmargin}
 \item Give an algorithm that runs in time $O(n)$, assuming that $A$ is given to you in sorted order.
 \begin{addmargin}[4em]{2em}
-
+\begin{lstlisting}
+Let A be the array of integers
+Let i be 0
+Let j be n-1
+While i < j
+	Sum = A[i] + A[j]
+	If Sum > z
+		j -= 1
+	Else if Sum < z
+		i += 1
+	Else
+		Return true
+Return false
+\end{lstlisting}
 \end{addmargin}
 \end{enumerate}
 \end{addmargin}
@@ -90,7 +103,7 @@ For i from 0 to n-1
 		Sum = A[i] + A[j] + A[k]
 		If Sum > 0
 			k -= 1
-		If Sum < 0
+		Else if Sum < 0
 			j += 1
 		Else
 			Return true
