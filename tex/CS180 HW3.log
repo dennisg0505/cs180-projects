@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.1)  28 FEB 2015 17:57
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.1)  28 FEB 2015 20:17
 entering extended mode
 **C:/Users/Jacob/Documents/cs180-projects/tex/CS180*HW3.tex
 ("C:/Users/Jacob/Documents/cs180-projects/tex/CS180 HW3.tex"
@@ -733,27 +733,37 @@ LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
 Missing character: There is no í in font cmr12!
 Missing character: There is no ° in font cmr12!
 Missing character: There is no € in font cmr12!
- [4]
-Underfull \hbox (badness 10000) in paragraph at lines 213--225
+
+Overfull \hbox (84.58232pt too wide) in paragraph at lines 183--184
+[][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (35.2324pt too wide) in paragraph at lines 194--195
+[][][][][][][][][][][][][][][][][][] 
+ []
+
+[4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 247--259
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 213--225
+Underfull \hbox (badness 10000) in paragraph at lines 247--259
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--235
+Underfull \hbox (badness 10000) in paragraph at lines 262--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--235
+Underfull \hbox (badness 10000) in paragraph at lines 262--269
 
  []
 
-[5] [6] ("C:\Users\Jacob\Documents\cs180-projects\tex\CS180 HW3.aux") ) 
+[6] ("C:\Users\Jacob\Documents\cs180-projects\tex\CS180 HW3.aux") ) 
 Here is how much of TeX's memory you used:
  23520 strings out of 493921
  578361 string characters out of 3144876
@@ -762,18 +772,18 @@ Here is how much of TeX's memory you used:
  8194 words of font info for 29 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  76i,7n,114p,794b,1550s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Prog
-ram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/
-Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/c
-msy8.pfb>
-Output written on "CS180 HW3.pdf" (6 pages, 133180 bytes).
+<C:/Program 
+Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8
+.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Prog
+ram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8
+.pfb>
+Output written on "CS180 HW3.pdf" (6 pages, 134511 bytes).
 PDF statistics:
  68 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

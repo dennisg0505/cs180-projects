@@ -173,11 +173,45 @@ Return CELL
 \item Find a maximal positive rectangular submatrix - i.e., a submatrix containing only positive values that has the most elements.
 \begin{addmargin}[2em]{2em}
 \begin{lstlisting}
-Function maximumPositiveMatrix
+Function maximumPositiveMatrix(Matrix)
+	Let MostPositive = 0
+	For each Left from 0 to columns(Matrix)
+		Let Temp be an integer array with rows(Matrix) zeroes
+		For each Right from Let to columns(Matrix)
+			For each i from 0 to rows(Matrix)
+				Temp[i] += Matrix[i][Right]
+			Let NumPositive = maximumPositiveArray(Temp, MaxStart, MaxTail)
+			If NumPositive > MostPositive
+				MostPositive = NumPositive
+				MaxRowStart = Left;
+				MaxRowTail = Right;
+				MaxColStart = maxStartForRij;
+				MaxColTail = maxTailForRij;
 
+	Return Matrix with corners MaxRowStart, MaxRowTail, 
+		MaxColStart, MaxColTail
+
+Function maximumPositiveArray(Array, byref(Start), byref(End))
+	Let MostPositive = 0
+	Let NumPositive = 0
+	Let Start = 0
+	Let End = -1
+	Let Index = 0
+
+	For each i from 0 to sizeof(Array)
+		NumPositive = max(0, NumPositive + Array[x])
+		MostPostive = max(MaxPositive, NumPositive)
+		If MostPostive = NumPositive
+			End = i
+		Else
+			Start = End + 1
+
+	Return MostPositive
 \end{lstlisting}
+Note: rows() is the number of rows of a matrix and columns() is the number of columns of a matrix.
 \end{addmargin}
-\item Find a maximum sum rectangular submatrix - i.e., a submatrix whose elements have maximal sum. (Hint: This is a generalization of the `maxsum' problem discussed at the start of this course.).
+\item Find a maximum sum rectangular submatrix - i.e., a submatrix whose elements have maximal sum. (Hint: This is a generalization of the `maxsum' problem discussed at th
+e start of this course.).
 \begin{addmargin}[2em]{2em}
 \begin{lstlisting}
 Function maximumSumMatrix(Matrix)
@@ -221,7 +255,7 @@ $p$ & $T(2^p)$ & Value \\
 4 & $T(16) = 3*176 + 4*40 + 3*16 = 736$ & 736  \\
 5 & $T(32) = 3*736 + 4*176 + 3*32 = 3008$ & 3008  \\
 \end{tabular} \\ \\
-Therefore, $T(2^p) = 2^p(3*2^p-2)$. Furthermore, the integer $k$ for which $T(n) = \Theta(n^k)$
+Therefore, $T(2^p) = 2^p(3*2^p-2)$. Furthermore, the integer $k$ for which $T(n) = \Theta(n^k)$ is $k = 0$.
 \end{addmargin}
 \item 
 \begin{addmargin}[2em]{2em}
