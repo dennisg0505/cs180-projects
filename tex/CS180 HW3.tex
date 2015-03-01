@@ -10,6 +10,7 @@
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{svg}
+\lstset{tabsize=2}
 \pgfplotsset{compat=1.7}
 
 \begin{document}
@@ -171,11 +172,33 @@ Return CELL
 \begin{enumerate}[(a)]
 \item Find a maximal positive rectangular submatrix - i.e., a submatrix containing only positive values that has the most elements.
 \begin{addmargin}[2em]{2em}
+\begin{lstlisting}
+Function maximumPositiveMatrix
 
+\end{lstlisting}
 \end{addmargin}
 \item Find a maximum sum rectangular submatrix - i.e., a submatrix whose elements have maximal sum. (Hint: This is a generalization of the `maxsum' problem discussed at the start of this course.).
 \begin{addmargin}[2em]{2em}
+\begin{lstlisting}
+Function maximumSumMatrix(Matrix)
+	Let MaxSum = 0
+	For each Left from 0 to columns(Matrix)
+		Let Temp be an integer array with rows(Matrix) zeroes
+		For each Right from Let to columns(Matrix)
+			For each i from 0 to rows(Matrix)
+				Temp[i] += Matrix[i][Right]
+			Let Sum = maximumSumArray(Temp, MaxStart, MaxTail)
+			If Sum > MaxSum
+				MaxSum = Sum
+				MaxRowStart = Left;
+				MaxRowTail = Right;
+				MaxColStart = maxStartForRij;
+				MaxColTail = maxTailForRij;
 
+	Return Matrix with corners MaxRowStart, MaxRowTail, 
+		MaxColStart, MaxColTail
+\end{lstlisting}
+Note: maximumSumArray() is Kadane's Algorithm (that returns the maxsum and updates seconds and third parameters to indicate the location of the maximum subarray), rows() is the number of rows of a matrix, and columns() is the number of columns of a matrix.
 \end{addmargin}
 \end{enumerate}
 
@@ -183,7 +206,36 @@ Return CELL
 \begin{enumerate}[(a)]
 \item 
 \begin{addmargin}[2em]{2em}
-
+The recurrence can be solved via a recursion tree as follows. First we can rewire $n$ as $n = 2^{\log n}$. With each recursive call downward, the square root will be taken. With some arbitrary $z$ iterations of the recursion, the $z$-th root of $n$ is taken as follows: $n^{1/2^{k}} = 2^{{\log n}/2^{k}}$. If we terminate when this expression is less than two, we logically reach $2^{{\log n}/2^{k}} = 2$, which can be rewritten as ${\log n}/2^{k} = 1$ by taken the $\log$ of both sides. This can further be simplified to  $\log n = 2^{k}$, which after taking the $\log$ of both sides again reduces to $\log\log n = k$. With each recursion tree step doing $n$ work, the total is $O(n \log\log n)$ which is exactly the big-O expected.
+\end{addmargin}
+\item 
+\begin{addmargin}[2em]{2em}
+$T(n) = T(2^p)$ \\ \\
+\begin{tabular}{l || l | r}
+$p$ & $T(2^p)$ & Value \\
+\hline
+0 & $T(1) = 1$ & 1  \\
+1 & $T(2) = 8$ & 8  \\
+2 & $T(4) = 3*8 + 4*1 + 3*4 = 40$ & 40  \\
+3 & $T(8) = 3*40 + 4*8 + 3*8 = 176$ & 176  \\
+4 & $T(16) = 3*176 + 4*40 + 3*16 = 736$ & 736  \\
+5 & $T(32) = 3*736 + 4*176 + 3*32 = 3008$ & 3008  \\
+\end{tabular} \\ \\
+Therefore, $T(2^p) = 2^p(3*2^p-2)$. Furthermore, the integer $k$ for which $T(n) = \Theta(n^k)$
+\end{addmargin}
+\item 
+\begin{addmargin}[2em]{2em}
+First, it can be shown that $T(n)$ is equal to the sum $\sum_{k=1}^{n}\frac{1}{2k-1}$ simply through iteration: \\ \\
+$T(n) = T(n-1) + \frac{1}{2n-1}$ \\
+$T(n) = T(n-2) + \frac{1}{2n-3} + \frac{1}{2n-1}$ \\
+$T(n) = T(n-3) + \frac{1}{2n-5} + \frac{1}{2n-3} + \frac{1}{2n-1}$ \\
+$T(n) = \frac{1}{2n-1} + \frac{1}{2n-3} + \frac{1}{2n-5} + ...$ \\
+$T(n) = \sum_{k=1}^{n}\frac{1}{2k-1}$ \\ \\
+Next, the sum can be expressed as the difference of two sums as follows: $\sum_{k=1}^{n}\frac{1}{2k-1} = \sum_{p=1}^{2n-1}\frac{1}{p} - (...)$. The first part is simply the harmonic series, which via calculus yields a result of $\log n$ for a series from 1 to $n$. However, given a series to $2n-1$, the solution becomes $\log \sqrt{n}$. The second part takes $O(1)$ constant time, resulting in a solution of $\log \sqrt{n} + O(1)$, where $\log$ is the natural logarithm.
+\end{addmargin}
+\item 
+\begin{addmargin}[2em]{2em}
+We begin with the following derivative, $\sum_{k=1}^{n}kc^{k-1} = \frac{d}{dc}\sum_{k=1}^{n}c^{k}$. From this, we can simply expand the known exponential sum as $\frac{d}{dc}\sum_{k=1}^{n}c^{k} = \frac{d}{dc}(\frac{c(c^n-1)}{c-1})$, which further yields (via derivation) $\frac{nc^{n+1} - (n + 1)c^n + 1}{{c-1}^2}$. Resulting in the answer we expected of $\sum_{k=1}^{n}kc^{k-1} = \frac{nc^{n+1} - (n + 1)c^n + 1}{{c-1}^2}$.
 \end{addmargin}
 \end{enumerate}
 \end{document}
