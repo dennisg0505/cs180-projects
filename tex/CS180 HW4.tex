@@ -20,7 +20,21 @@
 \begin{enumerate}[(a)]
 \item Show a sequence of $n \geq 6$ coins for which it is not optimal for the first player to start by picking up the available coin of larger value. That is, give an example for which the natural greedy strategy is suboptimal.
 \begin{addmargin}[2em]{2em}
-
+One such sequence of six coins in which the greedy approach fails is as follows:
+\begin{center}
+$1 \;\; 2 \;\; 3 \;\; 4 \;\; 1000 \;\; 6$
+\end{center}
+In this case, the coin grabbing goes as follows:
+\begin{center}
+\begin{tabular}{c || c}
+First Player & Second Player \\
+\hline
+6 & 1000 \\
+4 & 3 \\
+2 & 1 \\
+\end{tabular}
+\end{center}
+With this sequence of greedy grabbing, the first player ends up with a total of 12 while the second player has a total of 1004.
 \end{addmargin}
 \item Give an $O(n^2)$ algorithm to compute an optimal strategy for the first player. Given the initial sequence,
 your algorithm should precompute some information in $O(n^2)$ time, and then the first player should be
