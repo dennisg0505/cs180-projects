@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+# Ford-Fulkerson implementation from Wikipedia article
 class Edge(object):
 	def __init__(self, u, v, w):
 		self.source = u
